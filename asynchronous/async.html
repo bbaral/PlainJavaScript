@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async JavaScript</title>
+</head>
+<body>
+<h1>Async JavaScript</h1>
+<script>
+
+    const second = () => {
+        setTimeout(() => {
+            console.log('Async Heyy There');
+        }, 1000);
+    };
+    const first = () => {
+        console.log('Heyy There');
+        second();
+        console.log('Then end');
+    };
+    first();
+</script>
+</body>
+</html>
