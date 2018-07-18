@@ -4,8 +4,8 @@
 
 | AND (&&) | TRUE | FALSE |
 | --- | --- | --- |
-|TRUE| <p style='color:green'>TRUE</p> | <p style='color:red'>FALSE</p> |
-| FALSE | <p style='color:red'>FALSE</p> | <p style='color:red'>FALSE</p> |
+|TRUE| TRUE | FALSE |
+| FALSE | FALSE | FALSE |
 
 ***
 - And (&&) => true if ALL are true
@@ -15,8 +15,8 @@
 
 | OR (&&) | TRUE | FALSE |
 | --- | --- | --- |
-|TRUE| <p style='color:green'>TRUE</p> | <p style='color:green'>TRUE</p> |
-| FALSE | <p style='color:green'>TRUE</p> | <p style='color:red'>FALSE</p> |
+|TRUE| TRUE | TRUE |
+| FALSE | TRUE | FALSE |
 
 ```
 *****example*****
@@ -31,6 +31,11 @@ age >= 20 && age < 30;  //false
 age >= 20 || age < 30;  //true
 ```
 
+
+
+<div id="true">
+<p style='color:green'>TRUE</p>
+</div>
 
 
 
