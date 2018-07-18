@@ -2,10 +2,10 @@
 
 #### Boolean Operators
 
-| AND (&&) | TRUE | FALSE |
+| AND (&&) | **TRUE** | **FALSE** |
 | --- | --- | --- |
-|TRUE| TRUE | FALSE |
-| FALSE | FALSE | FALSE |
+|**TRUE**| TRUE | FALSE |
+| **FALSE** | FALSE | FALSE |
 
 ***
 - And (&&) => true if ALL are true
@@ -13,10 +13,10 @@
 - NOT ( ! ) => inverts true/false value
 ***
 
-| OR (&&) | TRUE | FALSE |
+| OR (&&) | **TRUE** | **FALSE** |
 | --- | --- | --- |
-|TRUE| TRUE | TRUE |
-| FALSE | TRUE | FALSE |
+|**TRUE**| TRUE | TRUE |
+| **FALSE**| TRUE | FALSE |
 
 
 
