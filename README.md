@@ -18,8 +18,9 @@
 |TRUE| TRUE | TRUE |
 | FALSE | TRUE | FALSE |
 
-```
-*****example*****
+
+
+```javascript
 
 var age = 16;
 
@@ -31,11 +32,6 @@ age >= 20 && age < 30;  //false
 age >= 20 || age < 30;  //true
 ```
 
-
-
-<div id="true">
-<p style='color:green'>TRUE</p>
-</div>
 
 
 
