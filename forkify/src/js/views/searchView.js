@@ -9,7 +9,20 @@ export const clearResult = () => {
   elements.searchResList.innerHTML = '';
 };
 
-const limitRecipeTitle = (recipe, limit)
+//Example-- 'Pasta with tomato and spinach
+const limitRecipeTitle = (title, limit = 17) => {
+    const newTitle = [];
+    if (title.length > limit) {
+        title.split(' ').reduce((acc, curr) => {
+            if (acc + curr.length <= limit) {
+                newTitle.push(curr);
+            }
+            return acc + curr.length;
+        }, 0);
+        return `${newTitle.join(' ')}...)`;
+    }
+    return title;
+}
 
 const renderRecipe = recipe => {
     const markup =
