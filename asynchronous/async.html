@@ -36,33 +36,33 @@
     //         }, 1000, recipeID[2]);
     //     }, 1500);
     // }
-    // getRecipe();
+    //getRecipe();
 
 // Promises are line below
-//     const getIDs = new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve([254,568,874,258]);
-//         }, 100);
-//     });
+    const getIDs = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve([254,568,874,258]);
+        }, 100);
+    });
+
+    const getRecipe = (recID) => {
+        return new Promise((resolve, reject) => {
+            setTimeout((ID) => {
+                const recipe = {title: 'fresh tomato Pasta', publisher: 'Baral'};
+                resolve(`${ID}: ${recipe.title}`);
+            }, 500, recID);
+
+        });
+    };
 //
-//     const getRecipe = (recID) => {
-//         return new Promise((resolve, reject) => {
-//             setTimeout((ID) => {
-//                 const recipe = {title: 'fresh tomato Pasta', publisher: 'Baral'};
-//                 resolve(`${ID}: ${recipe.title}`);
-//             }, 500, recID);
-//
-//         });
-//     };
-//
-//     const getRelated = publisher => {
-//       return new Promise((resolve, reject) => {
-//          setTimeout((pub) => {
-//              const recipe = {title: 'Italian Pizza', publisher: 'Geovani Maranzano'};
-//              resolve(`${pub}: ${recipe.title}`);
-//          }, 900, publisher);
-//       });
-//     };
+    const getRelated = publisher => {
+      return new Promise((resolve, reject) => {
+         setTimeout((pub) => {
+             const recipe = {title: 'Italian Pizza', publisher: 'Geovani Maranzano'};
+             resolve(`${pub}: ${recipe.title}`);
+         }, 900, publisher);
+      });
+    };
     //
     // getIDs.then((IDs) => {
     //     console.log(IDs);
@@ -76,37 +76,37 @@
     //     console.log(error);
     // });
 
-    // async function getRecipesAW() {
-    //     const IDs = await getIDs;
-    //     const recipe = await getRecipe(IDs[2]);
-    //     const related =  await getRelated(`Bikram`);
-    //     console.log(IDs);
-    //     console.log(recipe);
-    //     console.log(related);
-    //
-    //     return recipe;
-    // }
-    //
-    // getRecipesAW().then(result => {
-    //     console.log(result);
-    // });
+    async function getRecipesAW() {
+        const IDs = await getIDs;
+        const recipe = await getRecipe(IDs[2]);
+        const related =  await getRelated(`Bikram`);
+        console.log(IDs);
+        console.log(recipe);
+        console.log(related);
 
-    function getWeather(woeid) {
-        fetch(`https://www.metaweather.com/api/location/${woeid}/`)
-            .then(result => {
-                console.log(result);
-                return result.json();
-            })
-            .then(data => {
-                //console.log(data);
-                const today = data.consolidated_weather[0];
-                console.log(`Temperatures in ${data.title} stays between ${today.min_temp} & ${today.max_temp} and is ${today.weather_state_name}`);
-            })
-            .catch(error => console.log(error));
+        return recipe;
     }
 
+    getRecipesAW().then(result => {
+        console.log(result);
+    });
 
-    getWeather(2487956)
+    // function getWeather(woeid) {
+    //     fetch(`https://www.metaweather.com/api/location/${woeid}/`)
+    //         .then(result => {
+    //             console.log(result);
+    //             return result.json();
+    //         })
+    //         .then(data => {
+    //             //console.log(data);
+    //             const today = data.consolidated_weather[0];
+    //             console.log(`Temperatures in ${data.title} stays between ${today.min_temp} & ${today.max_temp} and is ${today.weather_state_name}`);
+    //         })
+    //         .catch(error => console.log(error));
+    // }
+    //
+    //
+    // getWeather(2487956)
 
 
 </script>
