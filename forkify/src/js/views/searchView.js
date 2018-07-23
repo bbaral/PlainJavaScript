@@ -19,7 +19,7 @@ const limitRecipeTitle = (title, limit = 17) => {
             }
             return acc + curr.length;
         }, 0);
-        return `${newTitle.join(' ')}...)`;
+        return `${newTitle.join(' ')}...`;
     }
     return title;
 }
@@ -32,7 +32,7 @@ const renderRecipe = recipe => {
                         <img src="${recipe.image_url}" alt="Test">
                     </figure>
                     <div class="results__data">
-                        <h4 class="results__name">"${recipe.title}"</h4>
+                        <h4 class="results__name">"${limitRecipeTitle(recipe.title)}"</h4>
                         <p class="results__author">"${recipe.publisher}"</p>
                     </div>
                 </a>
