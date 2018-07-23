@@ -32,11 +32,12 @@ age >= 20 && age < 30;  //false
 age >= 20 || age < 30;  //true
 ```
 
-````For any javascript Documentation.
-type something followed by mdn
-for example:
+```
+For any javascript Documentation.
+type something followed by mdnfor example:
 slice mdn
 array mdn
 object mdn
 etc
-etc````
+etc
+```
