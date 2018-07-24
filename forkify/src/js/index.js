@@ -19,18 +19,29 @@ const controlSearch = async () => {
         state.search = new Search(query);
         //3) Prepare UI for results
         await searchView.clearInput();
-        await searchView.clearResult();
+        await searchView.clearResults();
         await renderLoader(elements.spinnerAfterSearch);
         //4) Search for recipes
         await state.search.getResults();
         //5) Render results on UI
         clearSpinnerLoader();
-        searchView.renderResults(state.search.result);
+        await searchView.renderResults(state.search.result);
+
     }
 };
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
-    controlSearch()
+    controlSearch();
 });
 
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    console.log(btn);
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+        console.log(goToPage);
+    }
+});
 
