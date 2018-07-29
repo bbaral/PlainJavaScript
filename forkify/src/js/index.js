@@ -1,6 +1,7 @@
 import Search from './model/Search';
 import * as searchView from './views/searchView';
 import {elements, renderLoader, clearSpinnerLoader} from './views/base';
+import Recipe from "./model/Recipe";
 
 /**
  * Global state of the app
@@ -45,3 +46,14 @@ elements.searchResPages.addEventListener('click', e => {
     }
 });
 
+/**
+ * RECIPE CONTROLLER
+ */
+
+const controlRecipe = () => {
+  const id = window.location.hash.replace('#', '');
+  console.log(id);
+
+};
+
+window.addEventListener('hashchange', controlRecipe);
