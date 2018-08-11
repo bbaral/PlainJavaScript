@@ -15,3 +15,7 @@ export default class Search {
         }
     }
 }
+
+/**
+ * Coming from search.js
+ */
