@@ -4,6 +4,7 @@ import {elements, renderLoader, clearSpinnerLoader} from './views/base';
 import Recipe from "./model/Recipe";
 
 /**
+ * added added
  * Global state of the app
  * Search Object
  * Current recipe object
