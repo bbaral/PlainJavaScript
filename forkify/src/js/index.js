@@ -15,7 +15,8 @@ const state = {};
 
 const controlSearch = async () => {
     //1) Get query from view
-    const query = searchView.getInput(); //TODO
+    // const query = searchView.getInput(); //TODO
+    const query = 'pizza';
     if (query) {
         //2) New search object and add to state
         state.search = new Search(query);
@@ -30,12 +31,17 @@ const controlSearch = async () => {
             clearSpinnerLoader();
             searchView.renderResults(state.search.result);
         } catch (e) {
-            console.log('Something went wrong ->' + e);
+            console.log('Something went wrong... ->' + e);
             clearSpinnerLoader();
         }
     }
 };
 elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    controlSearch();
+});
+
+window.addEventListener('load', e => {
     e.preventDefault();
     controlSearch();
 });
@@ -65,6 +71,7 @@ const controlRecipe = async () => {
   console.log(id);
   if (id) {
       state.recipe = new Recipe(id);
+      window.r = state.recipe;
       try {
           // get recipe data
           await state.recipe.getRecipe();

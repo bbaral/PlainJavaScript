@@ -79,9 +79,11 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     //render results of current page
     const start = (page - 1) * resPerPage;
     const end = page * resPerPage;
-
-    recipes.slice(start, end).forEach(renderRecipe);
-
+    if (true) {
+        recipes.slice(start, end).forEach(renderRecipe);
+        renderButtons(page, recipes.length, resPerPage);
+    }
+    console.log('SearchView.js ==>' + e + page);
     //render pagination buttons
-    renderButtons(page, recipes.length, resPerPage);
+
 };
