@@ -34,4 +34,39 @@ export default class Recipe {
     calcServings() {
         this.servings = 4;
     }
+
+    parseIngredients() {
+        //example. lets say we have 'tablespoon. We want to parse it & make it shorter to tbsp
+        const unitsLong = ['tablespoon', 'tablespoons', 'ounces', 'ounce', 'teaspoon', 'teaspoons', 'cups', 'pounds'];
+        const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'pound'];
+        const newIngredients = this.ingredients.map(el => {
+            //uniform units
+            let ingredient = el.toLowerCase();
+            unitsLong.forEach((unit, i) => {
+                ingredient = ingredient.replace(unit, unitsShort[i]);
+            });
+            //remove parentheses
+            ingredient = ingredient.replace(/ *\([^)]*\) */g, '');
+            const arrIng = ingredient.split(' ');
+            const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
+
+            let objIng;
+            if (unitIndex > -1) {
+            } else if (parseInt(arrIng[0], 10)) {
+                objIng = {
+                    count: parseInt(arrIng[0], 10),
+                    unit: '',
+                    ingredient: arrIng.slice(1).join(' ')
+                }
+            }  else if (unitIndex === -1) {
+                objIng = {
+                    count: 1,
+                    unit: '',
+                    ingredient
+                }
+            }
+            return objIng;
+        });
+        this.ingredients = newIngredients;
+    }
 }
