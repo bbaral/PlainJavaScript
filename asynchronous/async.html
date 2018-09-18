@@ -7,6 +7,8 @@
 <body>
 <h1>Async JavaScript</h1>
 <script>
+
+    //uncomment out until indicator to use Promises
     // const second = () => {
     //     setTimeout(() => {
     //         console.log('Async Heyy There');
@@ -37,6 +39,7 @@
     //     }, 1500);
     // }
     //getRecipe();
+    //indicator
 
 // Promises are line below
     const getIDs = new Promise((resolve, reject) => {
@@ -63,33 +66,36 @@
          }, 900, publisher);
       });
     };
-    //
-    // getIDs.then((IDs) => {
-    //     console.log(IDs);
-    //     return getRecipe(IDs[2]);
-    // }).then((recipe) => {
-    //     console.log(recipe);
-    //     return getRelated(`Bikram`);
-    // }).then(recipe => {
-    //     console.log(recipe);
-    // }).catch(error => {
-    //     console.log(error);
-    // });
-
-    async function getRecipesAW() {
-        const IDs = await getIDs;
-        const recipe = await getRecipe(IDs[2]);
-        const related =  await getRelated(`Bikram`);
+    //to use promise .then uncomment below line until indicator
+    getIDs.then((IDs) => {
         console.log(IDs);
+        return getRecipe(IDs[2]);
+    }).then((recipe) => {
         console.log(recipe);
-        console.log(related);
-
-        return recipe;
-    }
-
-    getRecipesAW().then(result => {
-        console.log(result);
+        return getRelated(`Bikram`);
+    }).then(recipe => {
+        console.log(recipe);
+    }).catch(error => {
+        console.log(error);
     });
+    //indicator
+
+    //to use async uncomment until indicator
+    // async function getRecipesAW() {
+    //     const IDs = await getIDs;
+    //     const recipe = await getRecipe(IDs[2]);
+    //     const related =  await getRelated(`Bikram`);
+    //     console.log(IDs);
+    //     console.log(recipe);
+    //     console.log(related);
+    //
+    //     return recipe;
+    // }
+    //
+    // getRecipesAW().then(result => {
+    //     console.log(result);
+    // });
+    //indicator
 
     // function getWeather(woeid) {
     //     fetch(`https://www.metaweather.com/api/location/${woeid}/`)
